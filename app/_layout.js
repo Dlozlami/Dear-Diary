@@ -1,6 +1,8 @@
 import { Tabs } from 'expo-router/tabs';
 import { Foundation } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function AppLayout() {
   return (
@@ -16,7 +18,7 @@ export default function AppLayout() {
             title:'Home | My Journal',
             headerShown: false,
           tabBarIcon: ({ focused,color, size }) => (
-            <Foundation name="home" size={24} style={{color: focused ? 'black' : color}} />
+            <MaterialCommunityIcons name="home" size={24} style={{color: focused ? 'black' : color}} />
           ),
         }}
       />
@@ -26,7 +28,7 @@ export default function AppLayout() {
             title:'Log in | My Journal',
             headerShown: false,
           tabBarIcon: ({ focused,color, size }) => (
-            <Foundation name="user" size={24} style={{color: focused ? 'black' : color}} />
+            <FontAwesome name="user" size={24} style={{color: focused ? 'black' : color}} />
           ),
         }}
       />
@@ -56,7 +58,7 @@ export default function AppLayout() {
             title:'New Entry | My Journal',
             headerShown: false,
           tabBarIcon: ({ focused,color, size }) => (
-            <Foundation name="edit" size={24} style={{color: focused ? 'black' : color}} />
+            <Ionicons name="document-text-outline" size={24} style={{color: focused ? 'black' : color}} />
           ),
         }}
       />
