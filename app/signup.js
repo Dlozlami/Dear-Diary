@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground, TextInput, Pressable, Modal, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TextInput, Pressable, Modal } from 'react-native';
 import axios from 'axios';
 
 export default function Signup() {
-  const postEndpoint = 'http://10.255.66.152:8080/api/users';
+  const postEndpoint = 'http://192.168.0.232:8080/api/users';
 
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -11,9 +11,13 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
 
   const handleSignup = async () => {
     try {
+      // Disable the button
+      setButtonDisabled(true);
+
       const response = await axios.post(postEndpoint, {
         name,
         surname,
@@ -40,6 +44,9 @@ export default function Signup() {
       // Show error modal
       setSignupSuccess(false);
       setModalVisible(true);
+    } finally {
+      // Enable the button
+      setButtonDisabled(false);
     }
   };
 
@@ -94,7 +101,11 @@ export default function Signup() {
                 onChangeText={text => setPassword(text)}
               />
             </View>
-            <Pressable style={styles.button} onPress={handleSignup}>
+            <Pressable
+              style={[styles.button, isButtonDisabled && styles.disabledButton]}
+              onPress={handleSignup}
+              disabled={isButtonDisabled}
+            >
               <Text style={styles.buttonText}>Sign Up</Text>
             </Pressable>
           </View>
@@ -107,9 +118,9 @@ export default function Signup() {
             <Text style={styles.modalText}>
               {signupSuccess ? 'Signup Successful!' : 'Signup Failed! Please try again.'}
             </Text>
-            <TouchableOpacity style={styles.okButton} onPress={closeModal}>
+            <Pressable style={styles.okButton} onPress={closeModal}>
               <Text style={styles.okButtonText}>OK</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
       </Modal>
@@ -164,6 +175,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     alignItems: 'center',
     marginTop: 20,
+  },
+  disabledButton: {
+    opacity: 0.7,
   },
   buttonText: {
     color: 'white',
