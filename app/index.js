@@ -2,20 +2,22 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import React from "react";
 
 export default function Page() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.outer}>
-        <ImageBackground
-          source={{ uri: "https://example.com/background-image.jpg" }}
+  return ( 
+    <ImageBackground
+          source={{ uri: "../assets/hardcover.jpg" }}
           style={styles.backgroundImage}
         >
-          <View style={styles.main}>
-            <Text style={styles.title}>My Journal</Text>
-            <Text style={styles.subtitle}>Pages of Reflection.</Text>
+        <View style={styles.container}>
+          <View style={styles.outer}>
+          
+              <View style={styles.main}>
+                <Text style={styles.title}>My Journal</Text>
+                <Text style={styles.subtitle}>Pages of Reflection.</Text>
+              </View>
+            
           </View>
-        </ImageBackground>
-      </View>
-    </View>
+        </View>
+    </ImageBackground>
   );
 }
 
@@ -30,21 +32,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     maxWidth: 960,
     marginHorizontal: "auto",
+    borderWidth: 3,
+    borderColor: "black",
+    padding: 10,
   },
   title: {
-    fontSize: 64,
+    fontSize: 48,
     fontWeight: "bold",
   },
   subtitle: {
-    fontSize: 36,
+    fontSize: 24,
     color: "#38434D",
   },
   outer: {
     backgroundColor: "white",
-    padding: 20,
+    padding: 5,
     margin: 20,
-    borderWidth: 1,
-    borderColor: "black",
     marginTop: "20%",
   },
   backgroundImage: {

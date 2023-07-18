@@ -7,6 +7,7 @@ export default function Signup() {
       source={{ uri: '../assets/bg.jpg' }}
       style={styles.backgroundImage}
     >
+    <View style={styles.centerForm}>
       <View style={styles.container}>
         <Text style={styles.heading}>Welcome to My Journal!</Text>
         <Text style={styles.subHeading}>Unleash Your Thoughts. Sign Up for My Journal Today!</Text>
@@ -32,6 +33,7 @@ export default function Signup() {
           </TouchableOpacity>
         </View>
       </View>
+      </View>
     </ImageBackground>
   );
 }
@@ -42,7 +44,6 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -90,4 +91,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
+  centerForm:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
