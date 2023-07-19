@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ImageBackground, TextInput, Pressable, Modal } 
 import axios from 'axios';
 
 export default function Signup() {
-  const postEndpoint = 'http://192.168.0.232:8080/api/users';
+  const postEndpoint = 'http://10.255.66.152:8080/api/users';
 
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -56,7 +56,7 @@ export default function Signup() {
 
   return (
     <ImageBackground
-      source={{ uri: '../assets/bg.jpg' }}
+      source={{ uri: '../assets/bgInside.svg' }}
       style={styles.backgroundImage}
     >
       <View style={styles.centerForm}>

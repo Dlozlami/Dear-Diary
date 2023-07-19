@@ -4,7 +4,7 @@ import React from "react";
 export default function Page() {
   return ( 
     <ImageBackground
-          source={{ uri: "../assets/hardcover.jpg" }}
+          source={{ uri: "../assets/cover.jpg" }}
           style={styles.backgroundImage}
         >
         <View style={styles.container}>
